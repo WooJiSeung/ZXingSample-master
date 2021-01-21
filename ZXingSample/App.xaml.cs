@@ -17,6 +17,7 @@ namespace ZXingSample
 			////LoginPage.Children.Add(new GenerateBarcodePage());
             //
 			//LoginPage = LoginPage;
+            
 
             MainPage = new NavigationPage(new LoginPage());
             
