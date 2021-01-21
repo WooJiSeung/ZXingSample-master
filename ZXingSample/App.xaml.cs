@@ -20,6 +20,8 @@ namespace ZXingSample
             
 
             MainPage = new NavigationPage(new LoginPage());
+
+            //fdsfsdfsdfsdfsd
             
         }
 
