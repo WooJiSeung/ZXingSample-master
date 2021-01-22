@@ -67,7 +67,7 @@ namespace ZXingSample
                 {
                     iau.PlayWavSuccess();
                     await Navigation.PopAsync();
-                   // await DisplayAlert("Scanned Barcode", result.Text, "OK");
+                    await DisplayAlert("Scanned Barcode", result.Text, "OK");
                 });
             };
         }
