@@ -25,7 +25,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>ZXingSample</string>
 	<key>CFBundleIdentifier</key>
-	<string>nl.versluis.ZXingSample</string>
+	<string>nl.versluis.ZXingSample2</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>

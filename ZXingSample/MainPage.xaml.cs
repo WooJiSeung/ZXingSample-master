@@ -26,7 +26,7 @@ namespace ZXingSample
         }
         private void _LoadPage()
         {
-            this.Title = "NKO-ABBB0";
+            this.Title = "NKO-B0";
             iau = DependencyService.Get<IAudio>();
 
             //this.btnMain1.Image = (FileImageSource)ImageSource.FromFile("logo.png");

@@ -20,10 +20,15 @@ namespace ZXingSample
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
 
-#if __ANDROID__
-            
+#if !__ANDROID__
+         boxview.HeightRequest = 40;
+
 #endif
-            var vm = new LoginViewModel();
+
+
+
+
+             var vm = new LoginViewModel();
             this.BindingContext = vm;
 
             ImageSource imageSource = ImageSource.FromResource("ZXingSample.logo.png",  System.Reflection.Assembly.GetExecutingAssembly());
