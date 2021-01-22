@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             x:Class="ZXingSample.ActivityIndicatorXamlPage">
+        <StackLayout>
+            <Label x:Name="runningStatusLabel"
+               Text="All tasks are completed!"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand" />
+            <ActivityIndicator x:Name="defaultActivityIndicator"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                           VerticalOptions="Fill"
+                           HorizontalOptions="Fill" />
+            <ActivityIndicator x:Name="styledActivityIndicator"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                               
+                           Color="Orange"
+                           VerticalOptions="Fill"
+                           HorizontalOptions="Fill" />
+            <Button Text="Toggle task status"
+                Clicked="OnButtonClicked"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+</ContentPage>

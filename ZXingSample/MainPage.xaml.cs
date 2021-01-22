@@ -40,7 +40,7 @@ namespace ZXingSample
             switch(name)
             {
                 case "btnMain1": _ScanBarcode(); break;
-                case "btnMain2": break;
+                case "btnMain2": _LoadingBar();  break;
                 case "btnMain3": break;
                 case "btnMain4": break;
                 case "btnMain5": break;
@@ -70,6 +70,11 @@ namespace ZXingSample
                     await DisplayAlert("Scanned Barcode", result.Text, "OK");
                 });
             };
+        }
+
+        private void _LoadingBar()
+        {
+            Navigation.PushAsync(new ActivityIndicatorXamlPage());
         }
     }
 }
