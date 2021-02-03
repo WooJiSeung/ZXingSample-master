@@ -23,7 +23,7 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>ZXingSample</string>
+	<string>NifcoScanner</string>
 	<key>CFBundleIdentifier</key>
 	<string>nl.versluis.ZXingSample2</string>
 	<key>CFBundleVersion</key>
