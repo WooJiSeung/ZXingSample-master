@@ -3,11 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              
              x:Class="ZXingSample.ActivityIndicatorXamlPage">
-        <StackLayout>
+    <Grid VerticalOptions="Fill"
+              HorizontalOptions="Fill" RowSpacing="0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="45" ></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="runningStatusLabel" Grid.Row="0"
+               Text="" 
+               TextColor="Black" FontSize="Large"
+               VerticalOptions="Fill"
+               HorizontalOptions="Fill" />
+
+        <Button Text="Barcode Reading..." Grid.Row="1"
+                Clicked="OnButtonClicked"
+                VerticalOptions="Fill"
+                HorizontalOptions="Fill" />
+    </Grid>
+    <!--<StackLayout>
             <Label x:Name="runningStatusLabel"
                Text="All tasks are completed!"
                VerticalOptions="CenterAndExpand"
-               HorizontalOptions="CenterAndExpand" />
+               HorizontalOptions="Fill" />
             <ActivityIndicator x:Name="defaultActivityIndicator"
                                AbsoluteLayout.LayoutFlags="PositionProportional"
                                AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
@@ -20,9 +38,9 @@
                            Color="Orange"
                            VerticalOptions="Fill"
                            HorizontalOptions="Fill" />
-            <Button Text="Toggle task status"
+            <Button Text="Barcode Reading..."
                 Clicked="OnButtonClicked"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+                VerticalOptions="End"
+                HorizontalOptions="Fill" HeightRequest="30"/>
+        </StackLayout>-->
 </ContentPage>
