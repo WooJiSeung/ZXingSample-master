@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.Bluetooth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,8 @@ namespace ZXingSample
 	{
         private IAudio iau = null;
 
+        BluetoothAdapter btAdapter;
+
         public MainPage ()
 		{
 			InitializeComponent ();
@@ -29,10 +32,6 @@ namespace ZXingSample
             //this.Title = "NKO-B0";
             this.Title = "NIFCO Korea";
             iau = DependencyService.Get<IAudio>();
-
-            //this.btnMain1.Image = (FileImageSource)ImageSource.FromFile("logo.png");
-            //ImageSource imageSource = ImageSource.FromResource("ZXingSample.logo.png", System.Reflection.Assembly.GetExecutingAssembly());
-            //this.btnMain1.Image = (FileImageSource)imageSource;
         }
 
         private void BtnMain_Clicked(object sender, EventArgs e)
@@ -42,7 +41,7 @@ namespace ZXingSample
             {
                 case "btnMain1": _ScanBarcode(); break;
                 case "btnMain2": _LoadingBar();  break;
-                case "btnMain3": break;
+                case "btnMain3": _BScanner(); break;
                 case "btnMain4": break;
                 case "btnMain5": break;
                 default:break;
@@ -77,6 +76,12 @@ namespace ZXingSample
         {
             //Navigation.PushAsync(new ActivityIndicatorXamlPage());
             Navigation.PushAsync(new PartialScreenScanning());
+        }
+
+        private void _BScanner()
+        {
+            //Navigation.PushAsync(new ActivityIndicatorXamlPage());
+            Navigation.PushAsync(new BluetoothScanner());
         }
     }
 }
