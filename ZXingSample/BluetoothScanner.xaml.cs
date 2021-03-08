@@ -26,6 +26,7 @@ namespace ZXingSample
         IDevice device;
         CancellationTokenSource _cancellationTokenSource;
 
+
         public BluetoothScanner ()
 		{
 			InitializeComponent ();
@@ -55,8 +56,13 @@ namespace ZXingSample
             var ble = CrossBluetoothLE.Current;
             var state = ble.State;
             var adapter = CrossBluetoothLE.Current.Adapter;
+
+
+            adapter.ScanMode = Plugin.BLE.Abstractions.Contracts.ScanMode.LowLatency;
+            await adapter.StartScanningForDevicesAsync();
             _cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(5));
 
+            var pairedDevices = adapter.GetSystemConnectedOrPairedDevices();
             //await adapter.StopScanningForDevicesAsync();
             using (device = await adapter.ConnectToKnownDeviceAsync(
                 new Guid("00001101-0000-1000-8000-00805F9B34FB"), new ConnectParameters(true, false),
