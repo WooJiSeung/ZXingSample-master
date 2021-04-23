@@ -1,11 +1,11 @@
-﻿using Android.OS;
+﻿//using Android.OS;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ZXingSample
 {
-    class ScannerHandler : Handler
+    class ScannerHandler 
     {
         public ScannerHandler()
         {

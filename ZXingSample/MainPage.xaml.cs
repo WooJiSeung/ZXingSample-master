@@ -1,4 +1,4 @@
-﻿using Android.Bluetooth;
+﻿//using Android.Bluetooth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace ZXingSample
 	{
         private IAudio iau = null;
 
-        BluetoothAdapter btAdapter;
+        //BluetoothAdapter btAdapter;
 
         public MainPage ()
 		{
