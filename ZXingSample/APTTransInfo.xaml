@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZXingSample.APTTransInfo">
+    <ContentPage.Content>
+        <Grid VerticalOptions="Fill"
+              HorizontalOptions="Fill" RowSpacing="0" ColumnSpacing="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Picker x:Name="cboYear" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="30" HorizontalOptions="Fill" VerticalOptions="Fill">
+                    <Picker.Items>
+                    <x:String>2020</x:String>
+                    <x:String>2021</x:String>
+                    </Picker.Items>
+            </Picker>
+            <Picker x:Name="cboMonth" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" HeightRequest="30" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Picker.Items>
+                    <x:String>01</x:String>
+                    <x:String>02</x:String>
+                    <x:String>03</x:String>
+                    <x:String>04</x:String>
+                    <x:String>05</x:String>
+                    <x:String>06</x:String>
+                    <x:String>07</x:String>
+                    <x:String>08</x:String>
+                    <x:String>09</x:String>
+                    <x:String>10</x:String>
+                    <x:String>11</x:String>
+                    <x:String>12</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Picker x:Name="cboloc" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="30">
+            <Picker.Items>
+                    <x:String>천안_서북구</x:String>
+                    <x:String>천안_동남구</x:String>
+                    <x:String>대전_서구</x:String>
+                    <x:String>대전_대덕구</x:String>
+                    <x:String>대전_동구</x:String>
+                    <x:String>대전_유성구</x:String>
+                    <x:String>대전_중구</x:String>
+                    <x:String>평택시</x:String>
+                    <x:String>아산시</x:String>
+                    <x:String>세종시</x:String>
+                </Picker.Items>
+            </Picker>
+            
+            <Picker x:Name="cboDong" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" HeightRequest="30" SelectedIndexChanged="CboDong_SelectedIndexChanged"></Picker>
+            <Picker x:Name="cboApt" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5" HeightRequest="30" SelectedIndexChanged="CboApt_SelectedIndexChanged"></Picker>
+            <Button x:Name="btnSearch" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="5" HeightRequest="30" Text="조회" Clicked="BtnSearch_Clicked"></Button>
+            <Editor x:Name="textBox1" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="5" BackgroundColor="#a4eaff">
+                   
+            </Editor>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
