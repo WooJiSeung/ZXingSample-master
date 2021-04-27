@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +15,13 @@ namespace ZXingSample
 	public partial class APTTransInfo : ContentPage
 	{
         private Dictionary<string, List<string>> list = new Dictionary<string, List<string>>();
-
+        private Dictionary<string, string> codelist = new Dictionary<string, string>();
+        private DataTable _dt;
         public APTTransInfo ()
 		{
 			InitializeComponent ();
+
+            MemoraData.SetAptCode(ref codelist);
 
             _initControls();
 		}
@@ -146,6 +151,13 @@ namespace ZXingSample
                 cboDong.Items.Add(item.Key);
             }
         }
+        private DataTable _MakeDataTable()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add(new DataColumn("PRICE", typeof(String)));
+            dt.Columns.Add(new DataColumn("CMT", typeof(String)));
+            return dt;
+        }
 
         private void BtnSearch_Clicked(object sender, EventArgs e)
         {
@@ -176,6 +188,90 @@ namespace ZXingSample
                 xmlData = HttpCommunicator.GetPrevAPTInfo(code, date);
                 _SetData2(xmlData);
 
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("", ex.Message, "확인");
+            }
+        }
+        private void BtnSearch2_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                textBox2.Text = String.Empty;
+                string loc = cboloc.SelectedItem.ToString().Trim();
+                if (String.IsNullOrEmpty(loc))
+                    return;
+
+                string dong = cboDong.SelectedItem.ToString().Trim();
+                if (String.IsNullOrEmpty(dong))
+                    return;
+
+                string apt = cboApt.SelectedItem.ToString().Trim();
+                if (String.IsNullOrEmpty(apt))
+                    return;
+
+                string code = String.Empty;
+                code = MemoraData.GetAptCode(apt, codelist);
+                if (code == String.Empty)
+                {
+                    DisplayAlert("", "코드정보가 없습니다.", "확인");
+                    return;
+                }
+
+                if (_dt == null)
+                    _dt = _MakeDataTable();
+                else
+                    _dt.Rows.Clear();
+
+                string url = String.Empty;
+                for (int i = 1; i < 100; i++)
+                {
+                    url = String.Format("https://m.land.naver.com/complex/getComplexArticleList?hscpNo={0}&tradTpCd=A1%3AB1%3AB2&order=point_&showR0=N&page={1}", code, i);
+                    string aaa = HttpCommunicator.GetAPTSellInfo(url);
+
+                    JObject jo = JObject.Parse(aaa);
+                    JObject _info = (JObject)jo["result"];
+                    JArray _list = (JArray)_info["list"];
+
+                    if (_list.Count == 0)
+                        break;
+
+                    DataRow adr;
+                    foreach (JToken item in _list)
+                    {
+                        if (item["tradTpNm"].ToString() != "매매")
+                            continue;
+
+                        adr = _dt.NewRow();
+                        string _apt = item["atclNm"].ToString();
+                        string _dong = item["bildNm"].ToString();
+                        //string _spec = item["spc2"].ToString() + "/" + item["spc1"].ToString();
+                        string _spec = item["spc2"].ToString();
+                        string _flr = item["flrInfo"].ToString();
+                        string _indate = item["cfmYmd"].ToString();
+                        string _price = item["prcInfo"].ToString();
+
+                        adr[0] = _price;
+                        adr[1] = _spec + "(" + _dong + _flr.Split(new char[] { '/' })[0] + "층)_{" + _indate + "}";
+                        _dt.Rows.Add(adr);
+
+                        //string text = "[" + _price + "]_" + _spec + "(" + _dong + _flr.Split(new char[] { '/' })[0] + "층)_{" + _indate + "}";
+                        //text += Environment.NewLine;
+                        //textBox2.Text += text;
+                    }
+                }
+
+                DataView dtv = _dt.DefaultView;
+                dtv.Sort = "PRICE";
+                _dt = dtv.ToTable();
+
+                foreach (DataRow item in _dt.Rows)
+                {
+                    string text = "[" + item[0].ToString().Trim() + "]_" + item[1].ToString().Trim();
+                    text += Environment.NewLine;
+                    textBox2.Text += text;
+                }
             }
             catch (Exception ex)
             {

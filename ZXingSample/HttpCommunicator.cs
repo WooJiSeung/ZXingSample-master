@@ -50,5 +50,21 @@ namespace ZXingSample
             request.Abort();
             return results;
         }
+        public static string GetAPTSellInfo(string url)
+        {
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+
+            string results = string.Empty;
+            HttpWebResponse response;
+            using (response = request.GetResponse() as HttpWebResponse)
+            {
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                results = reader.ReadToEnd();
+            }
+
+            request.Abort();
+            return results;
+        }
     }
 }

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZXingSample.APTTransInfo">
     <ContentPage.Content>
-        <Grid VerticalOptions="Fill"
+            <Grid VerticalOptions="Fill"
               HorizontalOptions="Fill" RowSpacing="0" ColumnSpacing="0" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="5"/>
@@ -12,6 +12,10 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="5"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="5"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="5"/>
@@ -65,10 +69,13 @@
             <Picker x:Name="cboDong" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" HeightRequest="30" SelectedIndexChanged="CboDong_SelectedIndexChanged"></Picker>
             <Picker x:Name="cboApt" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5" HeightRequest="30" SelectedIndexChanged="CboApt_SelectedIndexChanged"></Picker>
             <Button x:Name="btnSearch" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="5" HeightRequest="30" Text="조회" Clicked="BtnSearch_Clicked"></Button>
-            <Editor x:Name="textBox1" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="5" BackgroundColor="#a4eaff">
+            <Editor x:Name="textBox1" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="5" BackgroundColor="#a4eaff" >
                    
             </Editor>
+            <Button x:Name="btnSearch2" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="5" HeightRequest="30" Text="매물보기" Clicked="BtnSearch2_Clicked"></Button>
+            <Editor x:Name="textBox2" Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="5" BackgroundColor="#a4eaff" >
 
+            </Editor>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
