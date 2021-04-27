@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZXingSample.MainPage2">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="mainButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#EX954A"/>
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <Grid VerticalOptions="Fill"
+              HorizontalOptions="Fill" RowSpacing="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" ></RowDefinition>
+                <RowDefinition Height="*" ></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="btnMain1"  ClassId="btnMain1" Grid.Row="0" Style="{StaticResource mainButton}" BackgroundColor="#FF9400D3" Text="API실거래" Clicked="BtnMain_Clicked"></Button>
+            <Button x:Name="btnMain2"  ClassId="btnMain2" Grid.Row="1" Style="{StaticResource mainButton}" BackgroundColor="#FF228B22" Text="API매물" Clicked="BtnMain_Clicked"></Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

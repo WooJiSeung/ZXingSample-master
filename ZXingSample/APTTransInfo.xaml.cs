@@ -343,5 +343,13 @@ namespace ZXingSample
                 }
             }
         }
+        private void TextBox1_Focused(object sender, FocusEventArgs e)
+        {
+            textBox1.Unfocus();
+        }
+        private void TextBox2_Focused(object sender, FocusEventArgs e)
+        {
+            textBox2.Unfocus();
+        }
     }
 }

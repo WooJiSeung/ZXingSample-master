@@ -11,18 +11,19 @@ namespace ZXingSample
 		{
 			InitializeComponent();
 
-			//var LoginPage = new TabbedPage();
-			//LoginPage.Children.Add(new FullScreenScanning());
-			////LoginPage.Children.Add(new PartialScreenScanning());
-			////LoginPage.Children.Add(new GenerateBarcodePage());
+            //var LoginPage = new TabbedPage();
+            //LoginPage.Children.Add(new FullScreenScanning());
+            ////LoginPage.Children.Add(new PartialScreenScanning());
+            ////LoginPage.Children.Add(new GenerateBarcodePage());
             //
-			//LoginPage = LoginPage;
-            
+            //LoginPage = LoginPage;
 
-            MainPage = new NavigationPage(new LoginPage());
+
+            //MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new MainPage2());
 
             //fdsfsdfsdfsdfsd
-            
+
         }
 
 		protected override void OnStart()

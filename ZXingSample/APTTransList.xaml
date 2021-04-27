@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZXingSample.APTTransList">
+    <ContentPage.Content>
+        <Grid VerticalOptions="Fill"
+              HorizontalOptions="Fill" RowSpacing="0" ColumnSpacing="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Picker x:Name="cboDong" Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Fill"
+                    ItemDisplayBinding="{Binding Value}"
+                    ItemsSource="{Binding PickerItemList}"
+                    SelectedItem="{Binding SelectedItem}">
+            </Picker>
+            <Button x:Name="btnSearch" Grid.Row="3" Text="조회" Clicked="BtnSearch_Clicked"></Button>
+            <Editor x:Name="textBox1" Grid.Row="5" BackgroundColor="#a4eaff" Focused="TextBox1_Focused">
+
+            </Editor>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -65,7 +65,7 @@ namespace ZXingSample
             codelist.Add("천안불당린스트라우스2단지", "109536");
             codelist.Add("불당파크푸르지오1단지", "111408");
             codelist.Add("불당파크푸르지오2단지", "111452");
-            codelist.Add("힐스테이트천안", "121930");
+            codelist.Add("힐스테이트천안", "121930"); 
             codelist.Add("신천안한성필하우스에듀타운1단지", "126749");
             codelist.Add("신천안한성필하우스에듀타운2단지", "126678");
             codelist.Add("버들마을우미린", "26943");

@@ -81,7 +81,8 @@ namespace ZXingSample
         private void _BScanner()
         {
             //Navigation.PushAsync(new ActivityIndicatorXamlPage());
-            Navigation.PushAsync(new APTTransInfo());
+            //Navigation.PushAsync(new APTTransInfo());
+            Navigation.PushAsync(new APTTransList());
         }
     }
 }
