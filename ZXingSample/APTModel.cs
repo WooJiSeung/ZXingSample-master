@@ -22,7 +22,8 @@ namespace ZXingSample
         }
         public void AddItem(string text, string key)
         {
-            PickerItems.Add(key, text);
+            if(!PickerItems.ContainsKey(key))
+                PickerItems.Add(key, text);
         }
     }
 }
