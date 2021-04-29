@@ -212,11 +212,17 @@ namespace ZXingSample
                     return;
 
                 string code = String.Empty;
-                code = MemoraData.GetAptCode(apt, codelist);
-                if (code == String.Empty)
+                //code = MemoraData.GetAptCode(apt, codelist);
+                code = HttpCommunicator.GetAPTCode(apt);
+                JObject a = JObject.Parse(code);
+                if (a["AccessSts"].ToString().Trim() == String.Empty)
                 {
                     DisplayAlert("", "코드정보가 없습니다.", "확인");
                     return;
+                }
+                else
+                {
+                    code = a["AccessSts"].ToString().Trim();
                 }
 
                 if (_dt == null)

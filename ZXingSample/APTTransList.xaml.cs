@@ -25,59 +25,59 @@ namespace ZXingSample
 
         private void _InitControls()
         {
+            string list = HttpCommunicator.GetAPTLIST();
+            JArray _list = JArray.Parse(list);
             APTModel models = new APTModel();
-            models.AddItem("천안역사동아라이크텐(아)", "118333");
-            models.AddItem("천안역사동아라이크텐(오)", "118334");
-            models.AddItem("백석마을아이파크", "26134");
-            models.AddItem("백석리슈빌", "26768");
-            models.AddItem("천안백석푸르지오", "26689");
+            if (_list.Count > 0)
+            {
+                foreach(var item in _list)
+                    models.AddItem(item["NAVERAPT"].ToString().Trim(), item["CODE"].ToString().Trim());
+            }
+            else
+            {
+                models.AddItem("천안역사동아라이크텐(아)", "118333");
+                models.AddItem("천안역사동아라이크텐(오)", "118334");
+                models.AddItem("백석마을아이파크", "26134");
+                models.AddItem("백석리슈빌", "26768");
+                models.AddItem("천안백석푸르지오", "26689");
+                models.AddItem("e편한세상두정2차", "103358");
+                models.AddItem("두정역효성해링턴플레이스", "117453");
+                models.AddItem("포레나천안두정", "127119");
+                models.AddItem("천안시티자이", "111858");
+                models.AddItem("천안스마일시티효성해링턴플레이스", "107453");
+                models.AddItem("e편한세상스마일시티", "106311");
+                models.AddItem("e편한세상스마일시티2차", "108810");
+                models.AddItem("천안한화꿈에그린스마일시티", "105337");
+                models.AddItem("대동다숲", "10451");
+                models.AddItem("동일하이빌", "10124");
+                models.AddItem("대원칸타빌", "10551");
+                models.AddItem("호반리젠시빌스위트", "10720");
+                models.AddItem("불당리더힐스", "109247");
+                models.AddItem("힐스테이트천안", "121930");
+                models.AddItem("신천안한성필하우스에듀타운1단지", "126749");
+                models.AddItem("신천안한성필하우스에듀타운2단지", "126678");
+                models.AddItem("버들마을우미린", "26943");
+                models.AddItem("천안청수한양수자인", "26891");
+                models.AddItem("행정타운센트럴두산위브", "134767");
+                models.AddItem("천안청당서희스타힐스", "129755");
+                models.AddItem("청당코오롱하늘채", "116435");
+                models.AddItem("천안청당서희스타힐스", "129755");
+                models.AddItem("아산탕정2-A2신혼희망타운", "129504");
+                models.AddItem("연화마을STX칸6단지", "27115");
+                models.AddItem("더샵센트로", "140484");
+                models.AddItem("크로바", "5986");
+                models.AddItem("목련", "5962");
+                models.AddItem("가람", "5800");
+                models.AddItem("청솔", "24922");
+                models.AddItem("국화동성", "5801");
+                models.AddItem("국화라이프", "5802");
+                models.AddItem("국화신동아", "5803");
+                models.AddItem("국화우성", "5804");
+                models.AddItem("국화한신", "5806");
+                models.AddItem("e편한세상대전에코포레", "120741");
+                models.AddItem("평택뉴비전엘크루", "125255");
+            }
 
-            models.AddItem("e편한세상두정2차", "103358");
-            models.AddItem("두정역효성해링턴플레이스", "117453");
-            models.AddItem("포레나천안두정", "127119");
-
-            models.AddItem("천안시티자이", "111858");
-            models.AddItem("천안스마일시티효성해링턴플레이스", "107453");
-            models.AddItem("e편한세상스마일시티", "106311");
-            models.AddItem("e편한세상스마일시티2차", "108810");
-            models.AddItem("천안한화꿈에그린스마일시티", "105337");
-
-            models.AddItem("대동다숲", "10451");
-            models.AddItem("동일하이빌", "10124");
-            models.AddItem("대원칸타빌", "10551");
-            
-            models.AddItem("호반리젠시빌스위트", "10720");
-            models.AddItem("불당리더힐스", "109247");
-
-            models.AddItem("힐스테이트천안", "121930");
-            models.AddItem("신천안한성필하우스에듀타운1단지", "126749");
-            models.AddItem("신천안한성필하우스에듀타운2단지", "126678");
-
-            models.AddItem("버들마을우미린", "26943");
-            models.AddItem("천안청수한양수자인", "26891");
-            models.AddItem("행정타운센트럴두산위브", "134767");
-            models.AddItem("천안청당서희스타힐스", "129755");
-            models.AddItem("청당코오롱하늘채", "116435");
-            models.AddItem("천안청당서희스타힐스", "129755");
-            
-            models.AddItem("아산탕정2-A2신혼희망타운", "129504");
-            models.AddItem("연화마을STX칸6단지", "27115");
-            models.AddItem("더샵센트로", "140484");
-            
-
-            models.AddItem("크로바", "5986");
-            models.AddItem("목련", "5962");
-            models.AddItem("가람", "5800");
-            
-            models.AddItem("청솔", "24922");
-            models.AddItem("국화동성", "5801");
-            models.AddItem("국화라이프", "5802");
-            models.AddItem("국화신동아", "5803");
-            models.AddItem("국화우성", "5804");
-            models.AddItem("국화한신", "5806");
-            models.AddItem("e편한세상대전에코포레", "120741");
-
-            models.AddItem("평택뉴비전엘크루", "125255");
             //models.AddItem("천안백석아이파크2차", "105354");
             //models.AddItem("백석더샵", "108523");
             //models.AddItem("두정역코아루스위트", "106845");
