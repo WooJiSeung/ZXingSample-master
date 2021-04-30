@@ -121,6 +121,7 @@ namespace ZXingSample
                 if (cboDong.SelectedItem == null)
                     return;
 
+                lb_cnt.Text = "(0)";
                 textBox1.Text = String.Empty;
                 string code = ((KeyValuePair<string, string>)cboDong.SelectedItem).Key;
 
@@ -173,6 +174,8 @@ namespace ZXingSample
                     text += Environment.NewLine;
                     textBox1.Text += text;
                 }
+                lb_cnt.Text = "(" + _dt.Rows.Count + ")";
+                //textBox1.
             }
             catch (Exception ex)
             {

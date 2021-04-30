@@ -13,13 +13,21 @@
                 <RowDefinition Height="5"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Picker x:Name="cboDong" Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Fill"
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Picker x:Name="cboDong" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill"
                     ItemDisplayBinding="{Binding Value}"
                     ItemsSource="{Binding PickerItemList}"
                     SelectedItem="{Binding SelectedItem}">
             </Picker>
-            <Button x:Name="btnSearch" Grid.Row="3" Text="조회" Clicked="BtnSearch_Clicked"></Button>
-            <Editor x:Name="textBox1" Grid.Row="5" BackgroundColor="#a4eaff" Focused="TextBox1_Focused">
+            <Button x:Name="btnSearch" Grid.Row="3" Grid.Column="0"  Text="조회" Clicked="BtnSearch_Clicked"></Button>
+            <Label x:Name="lb_cnt" Grid.Row="3" Grid.Column="1"  Text="(0)" HorizontalOptions="Fill" 
+                   VerticalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                   FontAttributes="Bold" FontSize="Medium"></Label>
+
+            <Editor x:Name="textBox1" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#a4eaff" Focused="TextBox1_Focused">
 
             </Editor>
         </Grid>
