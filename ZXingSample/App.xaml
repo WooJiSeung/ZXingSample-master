@@ -3,13 +3,32 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#484559</Color>
-            <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="Black" />
-                <Setter Property="BarTextColor" Value="White" />
+            <Color x:Key="AppBackgroundColor">AliceBlue</Color>
+            <Color x:Key="NavigationBarColor">#1976D2</Color>
+            <Color x:Key="NavigationBarTextColor">Yellow</Color>
+            <Color x:Key="NormalTextColor">Black</Color>
+            
+            <Style TargetType="{x:Type NavigationPage}">
+                <Setter Property="BarBackgroundColor"
+                    Value="{StaticResource NavigationBarColor}" />
+                <Setter Property="BarTextColor"
+                    Value="{StaticResource NavigationBarTextColor}" />
             </Style>
             
+            <Style TargetType="{x:Type ContentPage}" x:Key="StyleContentPage"
+                   ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource AppBackgroundColor}" />
+            </Style>
+            
+            <Style x:Key="mainButton33" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Black"/>
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
         </ResourceDictionary>
-        
     </Application.Resources>
     
 </Application>

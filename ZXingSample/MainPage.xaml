@@ -1,20 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ZXingSample.MainPage" Title = "adsadasdas">
+             x:Class="ZXingSample.MainPage" Title = "MainPage">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="mainButton" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="#EX954A"/>
-                <Setter Property="TextColor" Value="White" />
-                <Setter Property="FontSize" Value="Large" />
-                <Setter Property="FontAttributes" Value="Bold"/>
-            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     
     <ContentPage.Content>
-
         <Grid VerticalOptions="Fill"
               HorizontalOptions="Fill" RowSpacing="0" >
             <Grid.RowDefinitions>
@@ -25,12 +18,17 @@
                 <RowDefinition Height="*" ></RowDefinition>-->
             </Grid.RowDefinitions>
 
-                <Button x:Name="btnMain1"  ClassId="btnMain1" Grid.Row="0" Style="{StaticResource mainButton}" BackgroundColor="#FF9400D3" Text="라벨 확인" Clicked="BtnMain_Clicked"></Button>
-                <Button x:Name="btnMain2"  ClassId="btnMain2" Grid.Row="1" Style="{StaticResource mainButton}" BackgroundColor="#FF228B22" Text="라벨 정보" Clicked="BtnMain_Clicked"></Button>
-                <Button x:Name="btnMain3"  ClassId="btnMain3" Grid.Row="2" Style="{StaticResource mainButton}" BackgroundColor="#206D98" Text="API실거래" Clicked="BtnMain_Clicked"></Button>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+                <Button x:Name="btnMain1"  ClassId="btnMain1" Grid.Row="0" Style="{StaticResource mainButton33}" BackgroundColor="#FF9400D3" Text="라벨 확인" Clicked="BtnMain_Clicked"></Button>
+                <Button x:Name="btnMain2"  ClassId="btnMain2" Grid.Row="1" Style="{StaticResource mainButton33}" BackgroundColor="#FF228B22" Text="라벨 정보" Clicked="BtnMain_Clicked"></Button>
+                <Button x:Name="btnMain3"  ClassId="btnMain3" Grid.Row="2" Style="{StaticResource mainButton33}" BackgroundColor="#206D98" Text="API실거래" Clicked="BtnMain_Clicked"></Button>
                 <!--<Button x:Name="btnMain4"  ClassId="btnMain4" Grid.Row="3" Style="{StaticResource mainButton}" BackgroundColor="#E42EBF" Text="실시간 라벨 출력" Clicked="BtnMain_Clicked"></Button>
                 <Button x:Name="btnMain5"  ClassId="btnMain5" Grid.Row="4" Style="{StaticResource mainButton}" BackgroundColor="#6BB967" Text="환경 설정" Clicked="BtnMain_Clicked"></Button>-->
         </Grid>
+        
     </ContentPage.Content>
 </ContentPage>
     

@@ -74,8 +74,11 @@ namespace ZXingSample
 
         private void _LoadingBar()
         {
-            //Navigation.PushAsync(new ActivityIndicatorXamlPage());
-            Navigation.PushAsync(new PartialScreenScanning());
+            Navigation.PushAsync(new ActivityIndicatorXamlPage());
+            //Navigation.PushAsync(new PartialScreenScanning());
+            //NavigationPage aaa = new NavigationPage(new PartialScreenScanning());
+            //Navigation.PushModalAsync(aaa);
+
         }
 
         private void _BScanner()
