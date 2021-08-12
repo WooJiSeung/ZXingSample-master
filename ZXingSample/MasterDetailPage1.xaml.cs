@@ -25,6 +25,9 @@ namespace ZXingSample
                 return;
 
             var page = (Page)Activator.CreateInstance(item.TargetType);
+            if (item.Id == 2)
+                page = (Page)Activator.CreateInstance(item.TargetType1);
+
             page.Title = item.Title;
 
             Detail = new NavigationPage(page);
