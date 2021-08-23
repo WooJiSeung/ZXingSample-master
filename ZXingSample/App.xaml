@@ -7,6 +7,11 @@
             <Color x:Key="NavigationBarColor">#1976D2</Color>
             <Color x:Key="NavigationBarTextColor">Yellow</Color>
             <Color x:Key="NormalTextColor">Black</Color>
+
+            <Color x:Key="AppPrimaryColor">#1976D2</Color>
+            <Color x:Key="PrimaryColor">Black</Color>
+            <Color x:Key="SecondaryColor">White</Color>
+            <Color x:Key="TertiaryColor">Silver</Color>
             
             <Style TargetType="{x:Type NavigationPage}">
                 <Setter Property="BarBackgroundColor"
@@ -28,6 +33,44 @@
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
 
+            <Style TargetType="Button">
+                <Setter Property="FontSize"
+                    Value="Medium" />
+                <Setter Property="BackgroundColor"
+                    Value="{StaticResource AppPrimaryColor}" />
+                <Setter Property="TextColor"
+                    Value="{StaticResource SecondaryColor}" />
+                <Setter Property="CornerRadius"
+                    Value="5" />
+            </Style>
+
+            <ControlTemplate x:Key="MainPageTemplate">
+                <Grid VerticalOptions="FillAndExpand"
+        HorizontalOptions="FillAndExpand"
+        ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="90" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <BoxView BackgroundColor="Blue"
+                Grid.Column="0"
+                Grid.Row="0" />
+                    <ImageButton Source="logo.png"
+                Grid.Column="0"
+                Grid.Row="0"
+                />
+                    <Image Source="logo.png"
+            Aspect="AspectFit"
+            BackgroundColor="Transparent"
+            Grid.Column="2"
+            Grid.Row="0" />
+                    <ContentPresenter VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        Grid.Column="0"
+                        Grid.Row="1"/>
+                </Grid>
+            </ControlTemplate>
+            
         </ResourceDictionary>
     </Application.Resources>
     
