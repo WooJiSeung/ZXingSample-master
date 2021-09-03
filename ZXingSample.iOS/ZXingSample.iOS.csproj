@@ -164,6 +164,9 @@
     <PackageReference Include="Plugin.BLE">
       <Version>2.1.1</Version>
     </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>1.2.0.223</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.5.0.274416" />
     <PackageReference Include="ZXing.Net.Mobile.Forms">
       <Version>2.4.1</Version>

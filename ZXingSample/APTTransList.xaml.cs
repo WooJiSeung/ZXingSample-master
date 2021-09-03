@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Android.App;
+using Newtonsoft.Json.Linq;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -114,12 +116,18 @@ namespace ZXingSample
             return dt;
         }
 
-        private void BtnSearch_Clicked(object sender, EventArgs e)
+        private async void BtnSearch_Clicked(object sender, EventArgs e)
         {
             try
             {
                 if (cboDong.SelectedItem == null)
                     return;
+
+                Popupage page = new Popupage();
+                await PopupNavigation.Instance.PushAsync(page);
+                //await Task.Delay(5000);
+                //MessagingCenter.Send<APTTransList>(this, "Hi");
+
 
                 lb_cnt.Text = "(0)";
                 textBox1.Text = String.Empty;
@@ -175,11 +183,12 @@ namespace ZXingSample
                     textBox1.Text += text;
                 }
                 lb_cnt.Text = "(" + _dt.Rows.Count + ")";
-                //textBox1.
+
+                MessagingCenter.Send<APTTransList>(this, "Hi");
             }
             catch (Exception ex)
             {
-                DisplayAlert("", ex.Message, "확인");
+                await DisplayAlert("", ex.Message, "확인");
             }
         }
         private void TextBox1_Focused(object sender, FocusEventArgs e)

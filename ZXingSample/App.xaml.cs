@@ -19,10 +19,10 @@ namespace ZXingSample
             //LoginPage = LoginPage;
 
 
-            MainPage = new MasterDetailPage1();
+            //MainPage = new MasterDetailPage1();
 
             //MainPage = new NavigationPage(new LoginPage());
-            //MainPage = new NavigationPage(new MainPage2());
+            MainPage = new NavigationPage(new MainPage2());
 
             //MainPage = new MasterDetailPage()
             //{
